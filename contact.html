@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · Open Leaf Library</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+.contact-hero{background:var(--cocoa);min-height:100vh;padding:10rem 5rem 7rem;display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.contact-left{}
+.contact-eyebrow{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--cape);margin-bottom:1.5rem}
+.contact-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5.5rem);font-weight:300;color:var(--cream);line-height:1.05;margin-bottom:1.5rem}
+.contact-title em{font-style:italic;color:var(--tan)}
+.contact-desc{font-size:.93rem;color:rgba(214,172,136,.45);line-height:1.95;font-weight:300;max-width:380px}
+.contact-right{}
+.contact-name-block{margin-bottom:3.5rem}
+.contact-name{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--cream);margin-bottom:.3rem}
+.contact-location{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:rgba(214,172,136,.4);font-weight:300;letter-spacing:.04em}
+.contact-divider{height:1px;background:rgba(214,172,136,.08);margin:2.5rem 0}
+.contact-items{display:flex;flex-direction:column;gap:1.8rem}
+.contact-item{}
+.contact-item-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(154,100,73,.6);margin-bottom:.45rem;font-weight:400}
+.contact-item-value{font-size:.95rem;font-weight:300;color:rgba(214,172,136,.75)}
+.contact-item-link{text-decoration:none;color:var(--tan);transition:color .2s;display:inline-flex;align-items:center;gap:.5rem}
+.contact-item-link:hover{color:var(--cream)}
+.contact-item-link svg{opacity:.4;transition:opacity .2s}
+.contact-item-link:hover svg{opacity:.7}
+
+.back-btn-dark{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(214,172,136,.35);text-decoration:none;transition:color .2s;margin-bottom:3.5rem}
+.back-btn-dark:hover{color:var(--tan)}
+
+@media(max-width:900px){
+  .contact-hero{grid-template-columns:1fr;gap:4rem;padding:8rem 2rem 5rem;min-height:auto}
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <svg width="20" height="27" viewBox="0 0 22 30" fill="none">
+      <path d="M11 29C11 29 1 21 1 12C1 5.9 5.5 1 11 1C16.5 1 21 5.9 21 12C21 21 11 29 11 29Z" fill="currentColor"/>
+      <line x1="11" y1="29" x2="11" y2="8" stroke="#FBF5EC" stroke-width=".8" stroke-linecap="round"/>
+      <line x1="11" y1="19" x2="16" y2="14" stroke="#FBF5EC" stroke-width=".65" stroke-linecap="round" opacity=".5"/>
+      <line x1="11" y1="15" x2="6" y2="10" stroke="#FBF5EC" stroke-width=".65" stroke-linecap="round" opacity=".32"/>
+    </svg>
+    <span class="nav-logo-text">Open Leaf Library</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about" style="color:rgba(214,172,136,.6);text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase">About</a></li>
+    <li><a href="index.html#categories" style="color:rgba(214,172,136,.6);text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase">Areas</a></li>
+    <li><a href="index.html#latest" style="color:rgba(214,172,136,.6);text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase">Entries</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta" style="background:var(--buccaneer)">Contact</a>
+</nav>
+
+<main class="contact-hero">
+
+  <div class="contact-left">
+    <a class="back-btn-dark" href="index.html">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      Back to Library
+    </a>
+    <p class="contact-eyebrow">Get in touch</p>
+    <h1 class="contact-title">Let's<br><em>connect</em></h1>
+    <p class="contact-desc">Whether it's a question about the library, a collaboration idea or simply a hello — feel free to reach out.</p>
+  </div>
+
+  <div class="contact-right">
+    <div class="contact-name-block">
+      <div class="contact-name">Sylvi Garzarella</div>
+      <div class="contact-location">
+        <svg width="12" height="14" viewBox="0 0 14 18" fill="none">
+          <path d="M7 1C4.2 1 2 3.2 2 6C2 10 7 17 7 17C7 17 12 10 12 6C12 3.2 9.8 1 7 1Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+          <circle cx="7" cy="6" r="1.8" stroke="currentColor" stroke-width="1.1" fill="none"/>
+        </svg>
+        Fulda, Germany
+      </div>
+    </div>
+
+    <div class="contact-divider"></div>
+
+    <div class="contact-items">
+
+      <div class="contact-item">
+        <p class="contact-item-label">Private Email</p>
+        <a class="contact-item-link" href="mailto:sylvi@garzarella.net">
+          <svg width="16" height="12" viewBox="0 0 18 14" fill="none">
+            <rect x="1" y="1" width="16" height="12" rx="1" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <path d="M1 3L9 8.5L17 3" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+          </svg>
+          sylvi@garzarella.net
+        </a>
+      </div>
+
+      <div class="contact-item">
+        <p class="contact-item-label">University Email</p>
+        <a class="contact-item-link" href="mailto:sylvi-christina.garzarella@lt.hs-fulda.de">
+          <svg width="16" height="12" viewBox="0 0 18 14" fill="none">
+            <rect x="1" y="1" width="16" height="12" rx="1" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <path d="M1 3L9 8.5L17 3" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+          </svg>
+          sylvi-christina.garzarella@lt.hs-fulda.de
+        </a>
+      </div>
+
+    </div>
+
+    <div class="contact-divider"></div>
+
+    <p style="font-size:.75rem;color:rgba(214,172,136,.25);font-weight:300;line-height:1.8">
+      Open Leaf Library · Hochschule Fulda<br>
+      Industrial Engineering for Life Sciences
+    </p>
+
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="footer-logo" href="index.html" style="text-decoration:none">
+        <svg width="17" height="23" viewBox="0 0 22 30" fill="none">
+          <path d="M11 29C11 29 1 21 1 12C1 5.9 5.5 1 11 1C16.5 1 21 5.9 21 12C21 21 11 29 11 29Z" fill="currentColor"/>
+          <line x1="11" y1="29" x2="11" y2="8" stroke="#FBF5EC" stroke-width=".8" stroke-linecap="round"/>
+        </svg>
+        <span class="footer-logo-text">Open Leaf Library</span>
+      </a>
+      <p class="footer-tagline">A personal knowledge library — openly documented, openly shared. 100% open source.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigation</p>
+      <ul class="footer-links">
+        <li><a href="index.html" style="color:inherit;text-decoration:none">Home</a></li>
+        <li><a href="index.html#about" style="color:inherit;text-decoration:none">About Me</a></li>
+        <li><a href="index.html#categories" style="color:inherit;text-decoration:none">Knowledge Areas</a></li>
+        <li><a href="index.html#latest" style="color:inherit;text-decoration:none">Latest Entries</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Areas</p>
+      <ul class="footer-links">
+        <li><a href="index.html" style="color:inherit;text-decoration:none">Projects &amp; Science</a></li>
+        <li><a href="index.html" style="color:inherit;text-decoration:none">Organisation &amp; Tools</a></li>
+        <li><a href="index.html" style="color:inherit;text-decoration:none">AI &amp; Creativity</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Open Leaf Library · Open Source</p>
+    <p class="footer-copy">Built with HTML, curiosity &amp; coffee</p>
+  </div>
+</footer>
+
+</body>
+</html>
