@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Leaf Library</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <button class="nav-logo" onclick="goHome()">
+    <svg width="20" height="27" viewBox="0 0 22 30" fill="none">
+      <path d="M11 29C11 29 1 21 1 12C1 5.9 5.5 1 11 1C16.5 1 21 5.9 21 12C21 21 11 29 11 29Z" fill="currentColor"/>
+      <line x1="11" y1="29" x2="11" y2="8" stroke="#FBF5EC" stroke-width=".8" stroke-linecap="round"/>
+      <line x1="11" y1="19" x2="16" y2="14" stroke="#FBF5EC" stroke-width=".65" stroke-linecap="round" opacity=".5"/>
+      <line x1="11" y1="15" x2="6" y2="10" stroke="#FBF5EC" stroke-width=".65" stroke-linecap="round" opacity=".32"/>
+    </svg>
+    <span class="nav-logo-text">Open Leaf Library</span>
+  </button>
+  <ul class="nav-links">
+    <li><button onclick="navTo('about')">About</button></li>
+    <li><button onclick="navTo('categories')">Areas</button></li>
+    <li><button onclick="navTo('latest')">Entries</button></li>
+  </ul>
+  <button class="nav-cta">Contact</button>
+</nav>
+
+<div id="app"></div>
+
+<section class="footer-cta-band">
+  <div class="fcta-inner">
+    <div>
+      <p class="eyebrow" style="color:rgba(251,245,236,.45);margin-bottom:.75rem">Grow together</p>
+      <h2 class="fcta-title">Have a <em>story</em><br>to tell?</h2>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <button class="btn-fill" style="background:var(--cocoa)">Get involved</button>
+      <button class="btn-out" style="border-color:rgba(251,245,236,.3);color:var(--cream)">Support the author</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <button class="footer-logo" onclick="goHome()">
+        <svg width="17" height="23" viewBox="0 0 22 30" fill="none">
+          <path d="M11 29C11 29 1 21 1 12C1 5.9 5.5 1 11 1C16.5 1 21 5.9 21 12C21 21 11 29 11 29Z" fill="currentColor"/>
+          <line x1="11" y1="29" x2="11" y2="8" stroke="#FBF5EC" stroke-width=".8" stroke-linecap="round"/>
+        </svg>
+        <span class="footer-logo-text">Open Leaf Library</span>
+      </button>
+      <p class="footer-tagline">A personal knowledge library — openly documented, openly shared. 100% open source.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigation</p>
+      <ul class="footer-links">
+        <li><button onclick="goHome()">Home</button></li>
+        <li><button onclick="navTo('about')">About Me</button></li>
+        <li><button onclick="navTo('categories')">Knowledge Areas</button></li>
+        <li><button onclick="navTo('latest')">Latest Entries</button></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Areas</p>
+      <ul class="footer-links">
+        <li><button onclick="goCat('projekte')">Projects &amp; Science</button></li>
+        <li><button onclick="goCat('organisation')">Organisation &amp; Tools</button></li>
+        <li><button onclick="goCat('ki')">AI &amp; Creativity</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Open Leaf Library · Open Source</p>
+    <p class="footer-copy">Built with HTML, curiosity &amp; coffee</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

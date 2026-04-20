@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ======================================
+     ANPASSEN: Titel des Artikels
+     ====================================== -->
+<title>Artikel-Titel · Open Leaf Library</title>
+
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ── ENTRY-SPECIFIC STYLES ── */
+.entry-hero{background:var(--cocoa);padding:10rem 5rem 5rem;border-bottom:1px solid rgba(214,172,136,.08)}
+.entry-meta{display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.entry-cat{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cape);border:1px solid rgba(154,100,73,.3);padding:.3rem .8rem}
+.entry-date{font-size:.75rem;color:rgba(214,172,136,.4);font-weight:300}
+.entry-read{font-size:.75rem;color:rgba(214,172,136,.3);font-weight:300}
+.entry-dot{width:3px;height:3px;background:rgba(214,172,136,.25);border-radius:50%}
+.entry-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:300;color:var(--cream);line-height:1.05;max-width:800px;margin-bottom:1.5rem}
+.entry-title em{font-style:italic;color:var(--tan)}
+.entry-intro{font-size:1.05rem;color:rgba(214,172,136,.5);line-height:1.9;max-width:640px;font-weight:300}
+.entry-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+
+/* ── CONTENT AREA ── */
+.entry-content{max-width:740px;margin:0 auto;padding:6rem 2rem 8rem}
+
+/* Typography */
+.entry-content h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:400;color:var(--cocoa);margin:3.5rem 0 1.2rem;line-height:1.15}
+.entry-content h2 em{font-style:italic;color:var(--cape)}
+.entry-content h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--cocoa);margin:2.5rem 0 .9rem}
+.entry-content p{font-size:.95rem;color:rgba(50,37,37,.65);line-height:1.95;font-weight:300;margin-bottom:1.4rem}
+.entry-content strong{font-weight:500;color:var(--cocoa)}
+.entry-content em{font-style:italic;color:var(--cape)}
+.entry-content a{color:var(--cape);text-decoration:underline;text-underline-offset:3px}
+.entry-content a:hover{color:var(--buccaneer)}
+.entry-content ul,.entry-content ol{padding-left:1.5rem;margin-bottom:1.4rem}
+.entry-content li{font-size:.95rem;color:rgba(50,37,37,.65);line-height:1.9;font-weight:300;margin-bottom:.4rem}
+.entry-content blockquote{border-left:2px solid var(--cape);margin:2rem 0;padding:.8rem 0 .8rem 1.8rem}
+.entry-content blockquote p{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--cape);font-weight:300;margin:0;line-height:1.5}
+.entry-divider{height:1px;background:linear-gradient(to right,transparent,rgba(154,100,73,.18),transparent);margin:3rem 0}
+
+/* Image */
+.entry-image{width:100%;margin:2.5rem 0;overflow:hidden}
+.entry-image img{width:100%;height:auto;display:block}
+.entry-image figcaption{font-size:.7rem;color:rgba(50,37,37,.35);letter-spacing:.08em;text-align:center;margin-top:.75rem;font-weight:300}
+
+/* Image full-width (breiter als content) */
+.entry-image-wide{width:100vw;position:relative;left:50%;transform:translateX(-50%);margin:3rem 0}
+.entry-image-wide img{width:100%;height:auto;display:block;max-height:600px;object-fit:cover}
+.entry-image-wide figcaption{font-size:.7rem;color:rgba(50,37,37,.35);letter-spacing:.08em;text-align:center;margin-top:.75rem;font-weight:300;padding:0 2rem}
+
+/* Image 2-column grid */
+.entry-image-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.5rem 0}
+.entry-image-grid img{width:100%;height:240px;object-fit:cover;display:block}
+
+/* Video */
+.entry-video{width:100%;margin:2.5rem 0}
+.entry-video video{width:100%;display:block;background:#000}
+.entry-video iframe{width:100%;aspect-ratio:16/9;display:block;border:none}
+.entry-video figcaption{font-size:.7rem;color:rgba(50,37,37,.35);letter-spacing:.08em;text-align:center;margin-top:.75rem;font-weight:300}
+
+/* Callout / Hinweis-Box */
+.entry-callout{background:rgba(154,100,73,.07);border-left:2px solid var(--cape);padding:1.5rem 2rem;margin:2.5rem 0}
+.entry-callout p{color:rgba(50,37,37,.7);margin:0;font-size:.9rem}
+
+/* Code */
+.entry-content code{font-family:monospace;font-size:.85rem;background:rgba(154,100,73,.08);color:var(--buccaneer);padding:.15rem .4rem}
+.entry-content pre{background:var(--cocoa);color:var(--tan);padding:2rem;overflow-x:auto;margin:2rem 0;font-size:.82rem;line-height:1.7}
+
+/* ── NAVIGATION BETWEEN ENTRIES ── */
+.entry-nav{border-top:1px solid rgba(154,100,73,.12);padding:3rem 5rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;background:var(--cream)}
+.entry-nav-link{text-decoration:none;display:flex;flex-direction:column;gap:.4rem;max-width:300px}
+.entry-nav-link:last-child{text-align:right}
+.entry-nav-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(50,37,37,.3)}
+.entry-nav-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--cocoa);font-weight:400;transition:color .2s}
+.entry-nav-link:hover .entry-nav-title{color:var(--cape)}
+
+/* ── BACK BUTTON ── */
+.entry-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(214,172,136,.45);text-decoration:none;transition:color .2s;margin-bottom:3rem}
+.entry-back:hover{color:var(--tan)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .entry-hero,.entry-nav{padding-left:2rem;padding-right:2rem}
+  .entry-content{padding:4rem 1.5rem 5rem}
+  .entry-image-grid{grid-template-columns:1fr}
+  .entry-nav{flex-direction:column}
+  .entry-nav-link:last-child{text-align:left}
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV (gleich wie Hauptseite) ── -->
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <svg width="20" height="27" viewBox="0 0 22 30" fill="none">
+      <path d="M11 29C11 29 1 21 1 12C1 5.9 5.5 1 11 1C16.5 1 21 5.9 21 12C21 21 11 29 11 29Z" fill="currentColor"/>
+      <line x1="11" y1="29" x2="11" y2="8" stroke="#FBF5EC" stroke-width=".8" stroke-linecap="round"/>
+      <line x1="11" y1="19" x2="16" y2="14" stroke="#FBF5EC" stroke-width=".65" stroke-linecap="round" opacity=".5"/>
+      <line x1="11" y1="15" x2="6" y2="10" stroke="#FBF5EC" stroke-width=".65" stroke-linecap="round" opacity=".32"/>
+    </svg>
+    <span class="nav-logo-text">Open Leaf Library</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about" style="color:rgba(214,172,136,.6);text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;transition:color .2s">About</a></li>
+    <li><a href="../index.html#categories" style="color:rgba(214,172,136,.6);text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;transition:color .2s">Areas</a></li>
+    <li><a href="../index.html#latest" style="color:rgba(214,172,136,.6);text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;transition:color .2s">Entries</a></li>
+  </ul>
+  <a href="mailto:" class="nav-cta">Contact</a>
+</nav>
+
+
+<!-- ══════════════════════════════════════
+     ENTRY HEADER
+     ══════════════════════════════════════ -->
+<header class="entry-hero">
+
+  <!-- Zurück-Link: href anpassen je nach Kategorie -->
+  <a class="entry-back" href="../index.html">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    Back to Overview
+  </a>
+
+  <div class="entry-meta">
+    <!-- ======================================
+         ANPASSEN: Kategorie, Datum, Lesezeit
+         ====================================== -->
+    <span class="entry-cat">Projects &amp; Science</span>
+    <span class="entry-dot"></span>
+    <span class="entry-date">April 10, 2025</span>
+    <span class="entry-dot"></span>
+    <span class="entry-read">5 min read</span>
+  </div>
+
+  <!-- ======================================
+       ANPASSEN: Titel des Artikels
+       ====================================== -->
+  <h1 class="entry-title">Your Article <em>Title</em> Goes Here</h1>
+
+  <!-- ======================================
+       ANPASSEN: Kurze Einleitung / Teaser
+       ====================================== -->
+  <p class="entry-intro">
+    A short introductory sentence that summarises what this entry is about.
+    Keep it to 1–2 sentences — it's what the reader sees first.
+  </p>
+
+  <!-- ======================================
+       ANPASSEN: Tags
+       ====================================== -->
+  <div class="entry-tags">
+    <span class="tag">Tag 1</span>
+    <span class="tag">Tag 2</span>
+    <span class="tag">Tag 3</span>
+  </div>
+
+</header>
+
+
+<!-- ══════════════════════════════════════
+     ARTICLE CONTENT
+     ══════════════════════════════════════ -->
+<main class="entry-content">
+
+
+  <!-- ── NORMALER TEXT ── -->
+  <p>
+    This is a regular paragraph. Write your content here. You can use
+    <strong>bold text</strong> for emphasis, <em>italic</em> for highlights,
+    or <a href="#">links</a> to external sources.
+  </p>
+
+
+  <!-- ── ZWISCHENÜBERSCHRIFT ── -->
+  <h2>A Section <em>Heading</em></h2>
+
+  <p>
+    Another paragraph after the heading. Add as many sections as you need.
+    Each h2 heading creates a new major section in your entry.
+  </p>
+
+
+  <!-- ── KLEINERE ÜBERSCHRIFT ── -->
+  <h3>A Sub-Section Heading</h3>
+
+  <p>Content under the sub-section heading.</p>
+
+
+  <!-- ── AUFZÄHLUNG ── -->
+  <ul>
+    <li>First point or finding</li>
+    <li>Second point or finding</li>
+    <li>Third point or finding</li>
+  </ul>
+
+
+  <!-- ── ZITAT / BLOCKQUOTE ── -->
+  <blockquote>
+    <p>A meaningful quote, key insight, or important takeaway from this entry.</p>
+  </blockquote>
+
+
+  <!-- ── TRENNLINIE ── -->
+  <div class="entry-divider"></div>
+
+
+  <!-- ══════════════════════════════════════
+       BILD — Normal (innerhalb der Spalte)
+       Ersetze src mit deinem Bildpfad
+       ══════════════════════════════════════ -->
+  <figure class="entry-image">
+    <img src="../assets/your-image.jpg" alt="Beschreibung des Bildes">
+    <figcaption>Caption: A short description of what the image shows.</figcaption>
+  </figure>
+
+
+  <!-- ══════════════════════════════════════
+       BILD — Breit (volle Seitenbreite)
+       Entferne den Kommentar um es zu nutzen
+       ══════════════════════════════════════ -->
+  <!--
+  <figure class="entry-image-wide">
+    <img src="../assets/your-wide-image.jpg" alt="Beschreibung">
+    <figcaption>A full-width image caption.</figcaption>
+  </figure>
+  -->
+
+
+  <!-- ══════════════════════════════════════
+       BILDER — 2-spaltig nebeneinander
+       ══════════════════════════════════════ -->
+  <!--
+  <div class="entry-image-grid">
+    <img src="../assets/image-left.jpg" alt="Left image">
+    <img src="../assets/image-right.jpg" alt="Right image">
+  </div>
+  -->
+
+
+  <!-- ══════════════════════════════════════
+       VIDEO — Lokale Datei
+       ══════════════════════════════════════ -->
+  <!--
+  <figure class="entry-video">
+    <video controls poster="../assets/video-thumbnail.jpg">
+      <source src="../assets/your-video.mp4" type="video/mp4">
+    </video>
+    <figcaption>Video: A short description of the video content.</figcaption>
+  </figure>
+  -->
+
+
+  <!-- ══════════════════════════════════════
+       VIDEO — YouTube / Vimeo Embed
+       Ersetze die src mit deinem Embed-Link
+       ══════════════════════════════════════ -->
+  <!--
+  <figure class="entry-video">
+    <iframe
+      src="https://www.youtube.com/embed/DEIN-VIDEO-ID"
+      title="Video title"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+    <figcaption>Video: A short description.</figcaption>
+  </figure>
+  -->
+
+
+  <!-- ══════════════════════════════════════
+       CALLOUT / HINWEIS-BOX
+       Für wichtige Hinweise oder Zusammenfassungen
+       ══════════════════════════════════════ -->
+  <div class="entry-callout">
+    <p>
+      💡 <strong>Key Takeaway:</strong> Use this box to highlight an important
+      insight, tip, or conclusion from this entry.
+    </p>
+  </div>
+
+
+  <p>
+    Continue writing your content below. Add more sections, images or
+    videos as needed. Simply copy &amp; paste the blocks above.
+  </p>
+
+
+</main>
+
+
+<!-- ══════════════════════════════════════
+     NAVIGATION ZUM NÄCHSTEN / VORHERIGEN ARTIKEL
+     ══════════════════════════════════════ -->
+<nav class="entry-nav">
+
+  <!-- ======================================
+       ANPASSEN: Link zum vorherigen Artikel
+       Entferne diesen Block wenn es keinen gibt
+       ====================================== -->
+  <a class="entry-nav-link" href="previous-entry.html">
+    <span class="entry-nav-label">← Previous</span>
+    <span class="entry-nav-title">Title of Previous Entry</span>
+  </a>
+
+  <!-- ======================================
+       ANPASSEN: Link zum nächsten Artikel
+       Entferne diesen Block wenn es keinen gibt
+       ====================================== -->
+  <a class="entry-nav-link" href="next-entry.html">
+    <span class="entry-nav-label">Next →</span>
+    <span class="entry-nav-title">Title of Next Entry</span>
+  </a>
+
+</nav>
+
+
+<!-- ── FOOTER CTA ── -->
+<section class="footer-cta-band">
+  <div class="fcta-inner">
+    <div>
+      <p class="eyebrow" style="color:rgba(251,245,236,.45);margin-bottom:.75rem">Grow together</p>
+      <h2 class="fcta-title">Have a <em>story</em><br>to tell?</h2>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="../index.html" class="btn-fill" style="background:var(--cocoa)">Back to Library</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="footer-logo" href="../index.html" style="text-decoration:none">
+        <svg width="17" height="23" viewBox="0 0 22 30" fill="none">
+          <path d="M11 29C11 29 1 21 1 12C1 5.9 5.5 1 11 1C16.5 1 21 5.9 21 12C21 21 11 29 11 29Z" fill="currentColor"/>
+          <line x1="11" y1="29" x2="11" y2="8" stroke="#FBF5EC" stroke-width=".8" stroke-linecap="round"/>
+        </svg>
+        <span class="footer-logo-text">Open Leaf Library</span>
+      </a>
+      <p class="footer-tagline">A personal knowledge library — openly documented, openly shared. 100% open source.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigation</p>
+      <ul class="footer-links">
+        <li><a href="../index.html" style="color:inherit;text-decoration:none">Home</a></li>
+        <li><a href="../index.html#about" style="color:inherit;text-decoration:none">About Me</a></li>
+        <li><a href="../index.html#categories" style="color:inherit;text-decoration:none">Knowledge Areas</a></li>
+        <li><a href="../index.html#latest" style="color:inherit;text-decoration:none">Latest Entries</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Areas</p>
+      <ul class="footer-links">
+        <li><a href="../index.html" style="color:inherit;text-decoration:none">Projects &amp; Science</a></li>
+        <li><a href="../index.html" style="color:inherit;text-decoration:none">Organisation &amp; Tools</a></li>
+        <li><a href="../index.html" style="color:inherit;text-decoration:none">AI &amp; Creativity</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Open Leaf Library · Open Source</p>
+    <p class="footer-copy">Built with HTML, curiosity &amp; coffee</p>
+  </div>
+</footer>
+
+</body>
+</html>
